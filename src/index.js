@@ -131,3 +131,20 @@ observable
   }, 0)
   .subscribe(observer);
 */
+
+// 8 pluck instead map(a little shorter)
+/*
+const input = document.querySelector('input');
+const observable = Rx.Observable.fromEvent(input, 'input');
+const observer = {
+  next: (value) => {
+    console.log(value);
+  },
+};
+observable
+  .pluck('target', 'value')
+  .debounceTime(500)
+  .distinctUntilChanged()
+  .subscribe(observer);
+*/
+// 9
