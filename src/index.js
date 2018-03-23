@@ -36,7 +36,8 @@ setTimeout(() => {
 }, 5000);
 */
 
-const observable = Rx.Observable.interval(1000);
+// 3
+/*const observable = Rx.Observable.interval(1000);
 const observer = {
   next: (value) => {
     console.log(value);
@@ -46,4 +47,29 @@ const observer = {
 observable
   .map((value) => ('Number: ' + value))
   .throttleTime(2000)
-  .subscribe(observer);
+  .subscribe(observer);*/
+
+// 4
+const subject = new Rx.Subject();
+subject.subscribe({
+  next: (value) => {
+    console.log(value);
+  },
+  error: (error) => {
+    console.log(error);
+  },
+  complete: () => {
+    console.log('Complete');
+  },
+});
+
+subject.subscribe({
+  next: (value) => {
+    console.log(value);
+  },
+});
+
+subject.next('A new data piece');
+// subject.error('Error');
+subject.complete();
+subject.next('New value');
