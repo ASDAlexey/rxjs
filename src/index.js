@@ -108,3 +108,26 @@ observable
   .distinctUntilChanged()
   .subscribe(observer);
 */
+
+// 7 reduce and scan
+/*
+const observable = Rx.Observable.of(1, 2, 3, 4, 5);
+const observer = {
+  next: (value) => {
+    console.log(value);
+  },
+};
+console.log('reduce');
+observable
+  .reduce((total, currentValue) => {
+    return total + currentValue;
+  }, 0)
+  .subscribe(observer);
+
+console.log('scan');
+observable
+  .scan((total, currentValue) => {
+    return total + currentValue;
+  }, 0)
+  .subscribe(observer);
+*/
