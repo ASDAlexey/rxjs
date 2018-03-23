@@ -158,3 +158,18 @@ const observable2 = Rx.Observable.fromEvent(input2, 'input');
 observable1.mergeMap(
   event1 => (observable2.map(event2 => event1.target.value + ' ' + event2.target.value))
 ).subscribe(combinedValue => (span.textContent = combinedValue));*/
+
+// 10 cancel all ajax in case send new ajax(switchMap)
+/*
+const button = document.querySelector('button');
+const obs1 = Rx.Observable.fromEvent(button, 'click');
+const obs2 = Rx.Observable.interval(1000);
+
+obs1.switchMap(
+  (event) => obs2,
+).subscribe(
+  (value) => {
+    console.log(value);
+  }
+);
+*/
