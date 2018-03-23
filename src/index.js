@@ -50,6 +50,7 @@ observable
   .subscribe(observer);*/
 
 // 4
+/*
 const subject = new Rx.Subject();
 subject.subscribe({
   next: (value) => {
@@ -73,3 +74,37 @@ subject.next('A new data piece');
 // subject.error('Error');
 subject.complete();
 subject.next('New value');
+*/
+
+// 5 -> filter
+// const observable = Rx.Observable.interval(1000);
+// const observer = {
+//   next: (value) => {
+//     console.log(value);
+//   },
+//   error: (error) => {
+//     console.log('Error: ' + error);
+//   }
+// };
+//
+// observable
+//   .filter((value) => {
+//     return value % 2 === 0;
+//   })
+//   .subscribe(observer);
+
+// 6 distinctUntilChanged
+/*
+const input = document.querySelector('input');
+const observable = Rx.Observable.fromEvent(input, 'input');
+const observer = {
+  next: (value) => {
+    console.log(value);
+  },
+};
+observable
+  .map(event => event.target.value)
+  .debounceTime(500)
+  .distinctUntilChanged()
+  .subscribe(observer);
+*/
